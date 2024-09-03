@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dublin Bikes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'homepage.css' ) }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTTVO1ugwObWvyie4GITw1l9SEZBaPTec&callback=initMap"
+            async defer></script>
+    <script src="{{ url_for('static',filename='index2.js') }}"></script>
+
+
+</head>
+
+<body>
+<header>
+    <div class="header_container">
+        <div>
+            <img src="/static/logo.png" alt="Dublin Bikes Logo" width="150" height="150"/>
+            {#                <h1 id="dublin_bikes" style="text-align: center" onclick="closeStation()">Dublin Bikes</h1>#}
+
+        </div>
+
+
+        <nav class="navbar">
+            <ul>
+                <li STYLE="padding-right: 20px"><a href="#" onclick="closeStation(); window.location.reload()">HOME</a>
+                </li>
+                <li><a href="#" onclick="showStation();showAllStations();closePopup();">STATIONS</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="left_side">
+        <div class="left_component" id="current-weather" style="text-align: center">
+        </div>
+
+        <div class="form-container">
+            <div id="user_input">
+                <div class="input-container">
+                    <input type="text" id="start" placeholder="Start">
+                    <div class="autocomplete-container" id="start-list" style="background-color: white"></div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="end" placeholder="End">
+                    <div class="autocomplete-container" id="end-list" style="background-color: white"></div>
+                </div>
+            </div>
+
+            <button onclick="setNow()" id="now_btn">Now</button>
+            <button onclick="toggleTimepicker()" id="book_btn">Later</button>
+            <button onclick="goButtonHandler()" id="submit_btn">Go</button>
+            <div class="input-container" id="time_picker" style="display:none;">
+                <input type="date" id="departureDate" placeholder="Departure Date">
+                <input type="time" id="departureTime" placeholder="Departure Time">
+            </div>
+            <div id="overlay" class="overlay"></div>
+            <div id="availabilityModal" class="modal" style='display: none'>
+                <div class="modal-content">
+                    <span class="close" onclick="closePopup()">&times;</span>
+                    <div id="weatherInfo" ></div>
+                    <div id="startInfo" class="station-info"></div>
+                    <div id="endInfo" class="station-info"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</header>
+
+<div class="detail">
+
+    <div id="map" style="display: block">
+        Wait for GoogleMap To Connect
+    </div>
+    <div id="station" style="margin:auto;display:none">
+        <div id="searchContainer" class="input-container" style="position: relative; background-color: #F0F0F0 " >
+            <input type="text" id="stationSearch" placeholder="Enter station name" style="background-color: #F0F0F0">
+            <div  id="search-list" style="background-color: #F0F0F0"></div>
+{#            <button id="searchButton"> Search</button>#}
+        </div>
+    </div>
+
+</div>
+
+<div id="legend">
+    <div class="legend-item">
+        <span class="available"></span> High Availability
+    </div>
+    <div class="legend-item">
+        <span class="busy"></span> Low Availability
+    </div>
+    <div class="legend-item">
+        <span class="unavailable"></span> Unavailable
+    </div>
+</div>
+
+</body>
+
+
+
+</html>

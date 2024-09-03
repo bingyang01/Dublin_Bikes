@@ -1,0 +1,569 @@
+body {
+    font-family: 'Helvetica','Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /*flex-direction: column;*/
+    height: 100vh;
+    background-color:#F0F0F0;
+}
+/* header */
+header {
+    background-color: lightgreen;
+    color: #fff;
+    /*padding: 1rem;*/
+    /*display: flex;*/
+    justify-content: space-between;
+    align-items: center;
+    float: left;
+    width: 30%;
+    height:100%
+}
+.header_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #76D39D;
+    color: #000000;
+    padding: 1rem;
+    height:20%;
+}
+.header_container > div > * {
+    margin: 0;
+    padding: 0;
+}
+/*weather info*/
+#current-weather {
+    font-family: 'Helvetica','Arial', sans-serif;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.weather-info {
+    display: flex;
+    width: 100%;
+}
+
+.weather-icon {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.weather-temp {
+    font-size: 2em;
+    font-weight: bold;
+    color: #4CAF50;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.weather-desc {
+    color: #666;
+    font-size: 0.8em;
+}
+
+
+/*pop up*/
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 300px;
+    position: relative;
+    left: 0;
+}
+
+/* close pop up*/
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* show station in popup */
+.station-info  {
+    margin-bottom: 15px;
+    white-space: pre-line;
+    font-size:18px;
+}
+
+.weather-info{
+    white-space: pre-line;
+    font-size:18px;
+}
+
+/* CO2 emission */
+.co2-savings {
+    font-weight: bold;
+    color: green;
+}
+
+
+/*TABLE format*/
+caption{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px 0;
+    text-align: center;
+
+}
+
+
+.navbar{
+    overflow: hidden;
+    font-size: 20px;
+}
+
+.navbar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display:flex;
+    align-items: center;
+}
+.navbar li{
+    margin-right:20px;
+}
+.navbar a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Helvetica','Arial', sans-serif;;
+    /*padding: 30px 30px;*/
+    color:rgb(0, 0, 0)
+
+}
+
+
+.detail {
+    display: flex;
+    justify-content: space-around;
+    /*background-color: grey;*/
+    float: left;
+    /*padding: 20px;*/
+    /*height: 80%;*/
+    width:70%;
+    height:100vh
+}
+/* dowb page */
+#map {
+    width: 100%;
+    height: 100%
+}
+
+.left_side {
+    background-color: white;
+    height: 80%;
+    /*width: 30%;*/
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /*gap:20px;*/
+    /*padding-top:  10%;*/
+    flex-direction: column;
+    /*justify-content: space-around;*/
+    /*padding: 10px;*/
+    color: black;
+}
+
+
+.left_component {
+    width: 100%;
+    /*height: 100%;*/
+    /*margin-bottom: 10px; !* *!*/
+    /*align-content: center;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Helvetica','Arial', sans-serif;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+#map {
+    background-color: blue;
+}
+label{
+    display: block;
+}
+
+#dublin_bikes{
+    font-family: 'Helvetica','Arial', sans-serif;
+}
+#station{
+    height:100%;
+    overflow-y: auto;
+}
+table, th, td {
+    border: 1px solid black;
+    font-family: 'Helvetica','Arial', sans-serif;
+    font-size: 15px;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+button{
+    font-family: "Comic Sans MS";
+    font-size: 30px;
+}
+
+.form-container {
+  width: 300px; /* Adjust as necessary */
+  background: white;
+  padding: 10px;
+    /*padding-bottom: 400px;*/
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /*margin: 50px auto;*/
+    border: 2px solid #4CAF50;
+}
+
+.input-container {
+  background: #f9f9f9; /* Light grey background for input fields */
+  /*margin-bottom: 15px;*/
+  border-radius: 5px;
+}
+
+.input-container input {
+  width: 95%;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none; /* Remove blue outline on focus */
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none; /* Remove blue outline on focus */
+}
+
+.submit-btn:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+}
+
+
+
+.low {
+  color: red;
+  font-weight: bold;
+}
+
+.high {
+  color: green;
+  font-weight: bold;
+}
+
+.empty {
+  color: gray;
+  font-weight: bold;
+}
+#searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#stationSearch, #searchButton {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+#stationSearch {
+    flex-grow: 1;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#searchButton {
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+    background-color: #45a049;
+}
+
+.autocomplete-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: calc(100% - 20px);
+    max-height: 100px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+}
+#search-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: calc(100% - 125px); 
+    max-height: 100px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+    overflow: auto;
+}
+#search-list  div:hover {
+    background-color: #76D39D;
+}
+#start-list  div:hover {
+    background-color: #76D39D;
+}
+#end-list  div:hover {
+    background-color: #76D39D;
+}
+
+
+.autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.autocomplete-item:hover {
+    background-color: #e9e9e9;
+}
+
+
+
+/*#searchContainer {*/
+/*    display: flex;*/
+/*    !*position: relative;*!*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*#stationSearch {*/
+/*    padding: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 4px;*/
+/*    outline: none;*/
+/*    font-size: 16px;*/
+/*    width:80%;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*#searchButton {*/
+/*    padding: 10px 20px;*/
+/*    margin-left:10px;*/
+/*    border: none;*/
+/*    border-radius: 4px;*/
+/*    background-color: #4CAF50;*/
+/*    color: white;*/
+/*    cursor: pointer;*/
+/*    transition: background-color 0.3s;*/
+/*}*/
+
+/*#searchButton:hover {*/
+/*    background-color: #45a049;*/
+/*}*/
+
+
+/*.autocomplete-container {*/
+/*    position: absolute;*/
+/*    top: 100%; !* 放置在搜索框正下方 *!*/
+/*    left: 0; !* 与搜索框左对齐 *!*/
+/*    right: 0; !* 与搜索框右对齐 *!*/
+/*    width: 100%; !* 自动宽度根据内容调整 *!*/
+/*    max-height: 200px;*/
+/*    overflow-y: auto; !* 只在垂直方向上滚动 *!*/
+/*    background-color: #fff;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 4px;*/
+/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+/*    z-index: 99;*/
+/*    border-top: none; !* 移除与搜索框重叠的上边框 *!*/
+/*}*/
+
+
+/*!*.input-container .autocomplete-container {*!*/
+/*!*    width: calc(100% - 20px); !* 宽度减去内边距，确保不会溢出 *!*!*/
+/*!*    box-sizing: border-box; !* 边框和内边距包含在宽度内 *!*!*/
+/*!*}*!*/
+/*.autocomplete-item:hover {*/
+/*    background-color: #e9e9e9; !* 悬停时更淡的颜色 *!*/
+/*}*/
+
+.left_side .input-container {
+    position: relative;
+}
+
+.autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.autocomplete-item:hover {
+    background-color: #f2f2f2;
+}
+
+#legend {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.legend-item {
+    margin-bottom: 5px;
+}
+
+.legend-item span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.available { background-color: #47f547; }
+.busy { background-color: #FFA500; }
+.unavailable { background-color: #ff5454; }
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-icon-container {
+    width: 50px;
+    height: 50px;
+    background-color: #45a049;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.weather-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.weather-temp {
+    margin: 0;
+}
+/*input for start and end*/
+#start, #end{
+    border: 1px solid #4CAF50;
+}
+#start{
+    margin-bottom: 10px;
+}
+#user_input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/*for buttons*/
+#now_btn, #book_btn {
+    background-color: transparent;
+    color: grey;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#now_btn:hover, #book_btn:hover {
+    /*background-color: #a9d9bb;*/
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+#submit_btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    transition: box-shadow 0.3s;
+}
+#submit_btn:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+/*pop up*/
+.modal {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    width: 27%;
+    height: auto;
+
+}
+
+.modal-content {
+
+    margin: 15px 30px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: auto;
+    background-color: #fefefe;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
